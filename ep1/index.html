@@ -38,6 +38,8 @@
     height: min(56.25vw, 100vh);
     background: var(--bg);
     overflow: hidden;
+    container-type: size;
+    container-name: stage;
   }
 
   /* === 頂部進度條 === */
@@ -77,7 +79,7 @@
   }
   /* Hero 大 logo */
   .hero-logo {
-    height: clamp(80px, 12vh, 140px);
+    height: clamp(60px, 12cqh, 140px);
     margin-bottom: 32px;
     display: block;
   }
@@ -99,14 +101,14 @@
     transition: opacity 0.6s ease, visibility 0s;
   }
   .safe-zone {
-    width: min(880px, 78vh);
-    max-width: 80vw;
+    width: min(880px, 78cqh);
+    max-width: 80cqw;
     text-align: center;
   }
 
   /* === 幕 0 Hero 橫式排版 === */
   .hero-horizontal {
-    width: min(1400px, 92vw);
+    width: min(1400px, 92cqw);
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 80px;
@@ -114,7 +116,7 @@
     text-align: left;
   }
   .hero-title {
-    font-size: clamp(52px, 7vw, 108px);
+    font-size: clamp(36px, 7cqw, 108px);
     font-weight: 900;
     line-height: 1;
     margin-bottom: 24px;
@@ -123,7 +125,7 @@
   }
   .hero-title .accent { color: var(--blue); }
   .hero-sub {
-    font-size: clamp(18px, 2vw, 30px);
+    font-size: clamp(14px, 2cqw, 30px);
     font-weight: 500;
     color: var(--text-dim);
   }
@@ -154,7 +156,7 @@
 
   /* === 幕共用：問題標題 === */
   .scene-question {
-    font-size: clamp(30px, 3.2vw, 48px);
+    font-size: clamp(20px, 3.2cqw, 48px);
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 44px;
@@ -163,7 +165,7 @@
 
   /* === 幕 1 痛點卡 === */
   .scene[data-scene="1"] .safe-zone {
-    width: min(1500px, 94vw);
+    width: min(1500px, 94cqw);
   }
   .pain-grid {
     display: grid;
@@ -242,7 +244,7 @@
 
   /* === 幕 3 8 模組流程（兩排） === */
   .scene[data-scene="3"] .safe-zone {
-    width: min(1200px, 92vw);
+    width: min(1200px, 92cqw);
   }
   .flow-container {
     display: flex;
@@ -300,7 +302,7 @@
     transition: opacity 0.2s ease, visibility 0s;
   }
   .flow-detail-card {
-    width: min(900px, 85vw);
+    width: min(900px, 85cqw);
     padding: 56px 64px;
     background: linear-gradient(135deg, rgba(0,142,216,0.18), rgba(0,164,82,0.08));
     border: 2px solid var(--blue);
@@ -598,11 +600,11 @@
   /* === 幕 6 關於 GoWarehouse === */
   .about-container { text-align: center; }
   .about-logo {
-    height: clamp(50px, 8vh, 90px);
+    height: clamp(36px, 8cqh, 90px);
     margin-bottom: 24px;
   }
   .about-title {
-    font-size: clamp(32px, 4.2vw, 60px);
+    font-size: clamp(22px, 4.2cqw, 60px);
     font-weight: 900;
     color: white;
     margin-bottom: 12px;
@@ -610,7 +612,7 @@
   }
   .about-title .name { color: var(--blue); }
   .about-tagline {
-    font-size: clamp(16px, 1.8vw, 24px);
+    font-size: clamp(12px, 1.8cqw, 24px);
     color: var(--text-dim);
     margin-bottom: 56px;
     letter-spacing: 4px;
@@ -646,7 +648,7 @@
 
   /* === 幕 5 五產業 grid === */
   .scene[data-scene="5"] .safe-zone {
-    width: min(1400px, 94vw);
+    width: min(1400px, 94cqw);
   }
   .industry-grid {
     display: grid;
@@ -748,7 +750,7 @@
 
   /* === 幕 7 CTA === */
   .cta-main {
-    font-size: clamp(40px, 5vw, 72px);
+    font-size: clamp(26px, 5cqw, 72px);
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 28px;
@@ -947,8 +949,36 @@
 
   /* 手機橫向：維持原 16:9，但加大點擊區與縮小字體微調 */
   @media (orientation: landscape) and (max-height: 500px) {
-    .nav-btn { width: 48px; height: 48px; font-size: 22px; }
-    .kbd-hint { font-size: 11px; bottom: 10px; right: 12px; }
+    .nav-btn { width: 40px; height: 40px; font-size: 18px; opacity: 0.85; background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.35); }
+    .nav-btn.prev { left: max(6px, env(safe-area-inset-left)); }
+    .nav-btn.next { right: max(6px, env(safe-area-inset-right)); }
+    .kbd-hint { display: none; }
+    .scene-indicator { top: 10px; right: 12px; font-size: 13px; }
+    .scene-indicator .current { font-size: 15px; }
+    .logo-mark { bottom: 6px; left: 8px; }
+    .logo-mark img { height: 24px; }
+    .progress-bar { height: 3px; }
+  }
+
+  /* === 小 stage（手機）自動縮小 padding、gap、固定尺寸 === */
+  @container stage (max-width: 900px) {
+    .scene { padding: 20px 56px; }   /* 左右保留 nav-btn 空間 */
+    .host-avatar { width: 110px; height: 110px; border-width: 2px; }
+    .host-name { font-size: 16px; }
+    .host-title { font-size: 11px; line-height: 1.3; }
+    .hosts { gap: 24px; }
+    .hero-logo { margin-bottom: 14px; }
+    .hero-title { margin-bottom: 10px; letter-spacing: -1px; }
+    .hero-horizontal { gap: 24px; }
+    .scene-question { margin-bottom: 18px; }
+    .flow-container { gap: 8px; }
+    .pain-grid { gap: 8px; }
+    .about-pillars { gap: 8px; }
+    .industry-grid { gap: 6px; }
+    .flow-detail-card { padding: 24px 28px; }
+    .about-logo { margin-bottom: 12px; }
+    .about-tagline { margin-bottom: 24px; letter-spacing: 2px; }
+    .cta-main { margin-bottom: 14px; }
   }
 </style>
 </head>
