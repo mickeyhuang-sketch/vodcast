@@ -936,11 +936,8 @@
     color: var(--text);
   }
 
-  /* 手機直向觸發 hint；橫向或桌機都不顯示 */
-  @media (orientation: portrait) and (max-width: 900px) {
-    .rotate-hint { display: flex; }
-    body.force-portrait .rotate-hint { display: none; }
-  }
+  /* 旋轉提示已停用 */
+  .rotate-hint { display: none !important; }
 
   /* 手機橫向時隱藏鍵盤提示（桌機才顯示） */
   @media (max-height: 500px) {
