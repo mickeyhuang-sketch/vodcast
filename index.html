@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoWarehouse Vodcast — 倉儲管理 30 分鐘搞懂</title>
+<meta name="description" content="GoWarehouse 倉儲管理系統 Vodcast 系列。每集 30 分鐘 podcast 式對談，用最白話的方式帶你搞懂倉儲、WMS、3PL、AI 倉儲管理。">
+<style>
+  :root {
+    --blue: #008ED8;
+    --yellow: #FCCC27;
+    --green: #00A452;
+    --bg: #000;
+    --text: #fff;
+    --text-dim: #aaa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 24px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 800px;
+  }
+  .logo {
+    height: 80px;
+    margin-bottom: 32px;
+  }
+  h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--blue); }
+  .subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .episodes {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    gap: 24px;
+  }
+  .ep-card {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 32px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s ease;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .ep-card:hover {
+    border-color: var(--blue);
+    background: rgba(0,142,216,0.08);
+    transform: translateY(-2px);
+  }
+  .ep-number {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--blue);
+    line-height: 1;
+    min-width: 90px;
+  }
+  .ep-content { min-width: 0; }
+  .ep-title {
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ep-desc {
+    font-size: 16px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .ep-meta {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .ep-meta span {
+    background: rgba(255,255,255,0.06);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+  .ep-arrow {
+    font-size: 28px;
+    color: var(--yellow);
+  }
+  .coming {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+  }
+  .coming .ep-number { color: var(--text-dim); }
+  .coming .ep-arrow { display: none; }
+  .footer {
+    margin-top: 80px;
+    color: var(--text-dim);
+    font-size: 14px;
+    text-align: center;
+  }
+  .footer a { color: var(--blue); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .ep-card { grid-template-columns: 1fr; padding: 24px; gap: 12px; }
+    .ep-number { font-size: 40px; min-width: auto; }
+    .ep-arrow { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="ep1/logo/Gowarehouse-AI-h.svg" class="logo" alt="GoWarehouse">
+  <h1>GoWarehouse <span class="accent">Vodcast</span></h1>
+  <p class="subtitle">每集 30 分鐘，米奇 × 阿潔帶你用最白話的方式<br>搞懂倉儲、WMS、3PL、AI 倉儲管理</p>
+</div>
+
+<div class="episodes">
+
+  <a href="ep1/" class="ep-card">
+    <div class="ep-number">EP1</div>
+    <div class="ep-content">
+      <div class="ep-title">什麼是 WMS？</div>
+      <div class="ep-desc">30 分鐘搞懂倉庫管理系統，從 ERP vs WMS、八大模組、四種方案，到五大產業應用一次說清楚。</div>
+      <div class="ep-meta">
+        <span>米奇 × 阿潔</span>
+        <span>30 min</span>
+      </div>
+    </div>
+    <div class="ep-arrow">→</div>
+  </a>
+
+  <div class="ep-card coming">
+    <div class="ep-number">EP2</div>
+    <div class="ep-content">
+      <div class="ep-title">即將推出</div>
+      <div class="ep-desc">下一集主題規劃中…</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>© GoWarehouse · <a href="https://line.me/R/ti/p/@gowarehouse" target="_blank">加 LINE @gowarehouse</a></p>
+</div>
+
+</body>
+</html>
